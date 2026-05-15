@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AddPoints : MonoBehaviour
 {
+    public AudioSource audioSource;
     public LixoSpawnerController lixoSpawnerController;
 
     private void OnCollisionEnter(Collision collision) {
@@ -11,6 +12,7 @@ public class AddPoints : MonoBehaviour
         if (collision.gameObject.CompareTag("Lixo")) {
             Destroy(collision.gameObject);
             lixoSpawnerController.AddToPoints(1);
+            audioSource.Play();
         }
     }
 }
